@@ -1,0 +1,23 @@
+{
+  "name": "anchor",
+  "version": "1.0.0",
+  "description": "A note-taking application with web and mobile interfaces",
+  "private": true,
+  "workspaces": [
+    "web",
+    "server"
+  ],
+  "scripts": {
+    "install": "pnpm install --filter web --filter server",
+    "build": "pnpm build:server && pnpm build:web",
+    "build:web": "pnpm --filter web build",
+    "build:server": "pnpm --filter server build",
+    "dev": "docker compose -f docker-compose.dev.yml up",
+    "start": "docker compose up"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}
